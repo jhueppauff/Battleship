@@ -22,27 +22,19 @@ public class SchiffeVersenken {
 
     /**
      * @param args the command line arguments
-     */
-    
-    
+     */  
     static String[][] Spielfeld = new String[5][5];
     static String[][] Mod_Spielfeld = new String[5][5];
     static boolean gewonnen = false;
   
-    
     public static void main(String[] args) {
-        // TODO code application logic here
         
         ladeSpiel();        
         ladeSpielfeld();
         
-        while (!gewonnen) {            
-            
+        while (!gewonnen) {              
             gameTick();
-        }
-        
-        
-        
+        }   
     }
     
     public static void gameTick()
@@ -51,8 +43,7 @@ public class SchiffeVersenken {
     }
     
     public static void Zug(String target)
-    {
-        
+    { 
         if ("Zeige Feld".equals(target)) {
             zeigeSpielfeld();
         }
@@ -67,11 +58,7 @@ public class SchiffeVersenken {
         
         x--;
         y--;
-        
-          
-                
-            
-        
+
         if ("X".equals(Spielfeld[x][y])) {
            gewonnen = true;
            System.out.println("Treffer");
@@ -84,63 +71,46 @@ public class SchiffeVersenken {
         Mod_Spielfeld[x][y] = "/";
         Update();
         
-        }
-            
-          
+        }        
     }
-    }
-    
+    }  
     
     public static  void ladeSpiel()
     {
         for (int i = 0; i < Spielfeld.length; i++) {
-            
             for (int j = 0; j < Spielfeld[i].length; j++) {
-                
                 Spielfeld[i][j] = "O";   
             }
         }
         
         for (int i = 0; i < Spielfeld.length; i++) {
-            
             for (int j = 0; j < Spielfeld[i].length; j++) {
-                
                 Mod_Spielfeld[i][j] = "O";   
             }
         }
-        
-        
     }
     
-    private static void usingBufferedReader()
-{
-  System.out.println("Select your target: x,y ");
-  try{
-     BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-     String inputString = bufferRead.readLine();
-      
-     Zug(inputString);
- }
- catch(IOException ex)
- {
-    ex.printStackTrace();
- }
-}   
+    private static void usingBufferedReader(){
+        System.out.println("Select your target: x,y ");
+        try{
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+            String inputString = bufferRead.readLine();
+            Zug(inputString);
+         }
+         catch(IOException ex)
+         {
+            ex.printStackTrace();
+         }
+    }   
     
     public static void ladeSpielfeld()
     {
         for (int i = 0; i < Spielfeld.length; i++) {
             for (int j = 0; j < Spielfeld.length; j++) {
-                System.out.print(Spielfeld[i][j]);
-                
-                
+                System.out.print(Spielfeld[i][j]); 
             }
             System.out.println("");
-            
-            
-            
         }
-        
         erstelleFeind();
     }
     
@@ -154,7 +124,7 @@ public class SchiffeVersenken {
     int randomNum = rand.nextInt((max - min) + 1) + min;
 
     return randomNum;
-}
+    }
     
     private static void erstelleFeind()
     {
@@ -168,14 +138,9 @@ public class SchiffeVersenken {
     {
         for (int i = 0; i < Spielfeld.length; i++) {
             for (int j = 0; j < Spielfeld.length; j++) {
-                System.out.print(Spielfeld[i][j]);
-                
-                
+                System.out.print(Spielfeld[i][j]);                
             }
-            System.out.println("");
-            
-            
-            
+            System.out.println(""); 
         }
     }
     
@@ -183,14 +148,9 @@ public class SchiffeVersenken {
     {
         for (int i = 0; i < Mod_Spielfeld.length; i++) {
             for (int j = 0; j < Mod_Spielfeld.length; j++) {
-                System.out.print(Mod_Spielfeld[i][j]);
-                
-                
+                System.out.print(Mod_Spielfeld[i][j]);    
             }
             System.out.println("");
-            
-            
-            
         }
     }
 }
