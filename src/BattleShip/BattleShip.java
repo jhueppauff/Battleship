@@ -3,7 +3,7 @@
  * MIT Licence
  * See https://github.com/jhueppauff/Battleship/blob/master/LICENSE for more Information
  */
-package schiffeversenken;
+package BattleShip;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class SchiffeVersenken {
+public class BattleShip {
 
     static String[][] board = new String[5][5];
     static String[][] modBoard = new String[5][5];
