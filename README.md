@@ -1,6 +1,7 @@
 # Battleship
 Java Battleship Game to demonstrate multidimensional arrays
 
-As this was University Task I helped a friend of mine, this uses german variable names :(
+This was University Task I helped a friend of mine.
 
-Maybe I will update this sometimes
+The whole point was to write a Battleship Console Game using Multidimensional Arrays. 
+(There might be a better approch to solve this, but we do not question school tasks :)) 
