@@ -16,16 +16,16 @@ import java.util.Random;
 
 public class SchiffeVersenken {
 
-    static String[][] Spielfeld = new String[5][5];
-    static String[][] Mod_Spielfeld = new String[5][5];
-    static boolean gewonnen = false;
+    static String[][] board = new String[5][5];
+    static String[][] modBoard = new String[5][5];
+    static boolean victory = false;
   
     public static void main(String[] args) {
         
-        ladeSpiel();        
-        ladeSpielfeld();
+        LoadGame();        
+        LoadBoard();
         
-        while (!gewonnen) {              
+        while (!victory) {              
             gameTick();
         }   
     }
@@ -35,14 +35,14 @@ public class SchiffeVersenken {
         usingBufferedReader();
     }
     
-    public static void Zug(String target)
+    public static void Move(String target)
     { 
-        if ("Zeige Feld".equals(target)) {
-            zeigeSpielfeld();
+        if ("Show Board".equals(target)) {
+            ShowBoard();
         }
         else 
         {
-        System.out.println("Feuer auf "+ target);
+        System.out.println("Fire at "+ target);
         
         List<String> splitList = Arrays.asList(target.split(","));
         
@@ -52,33 +52,33 @@ public class SchiffeVersenken {
         x--;
         y--;
 
-        if ("X".equals(Spielfeld[x][y])) {
-           gewonnen = true;
+        if ("X".equals(board[x][y])) {
+           victory = true;
            System.out.println("Treffer");
           System.out.println("Gewonnen");
-          Mod_Spielfeld[x][y] = "X";
+          modBoard[x][y] = "X";
           Update();
         }
         else
         {
-        Mod_Spielfeld[x][y] = "/";
+        modBoard[x][y] = "/";
         Update();
         
         }        
     }
     }  
     
-    public static  void ladeSpiel()
+    public static  void LoadGame()
     {
-        for (int i = 0; i < Spielfeld.length; i++) {
-            for (int j = 0; j < Spielfeld[i].length; j++) {
-                Spielfeld[i][j] = "O";   
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                board[i][j] = "O";   
             }
         }
         
-        for (int i = 0; i < Spielfeld.length; i++) {
-            for (int j = 0; j < Spielfeld[i].length; j++) {
-                Mod_Spielfeld[i][j] = "O";   
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                modBoard[i][j] = "O";   
             }
         }
     }
@@ -88,7 +88,7 @@ public class SchiffeVersenken {
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
             String inputString = bufferRead.readLine();
-            Zug(inputString);
+            Move(inputString);
          }
          catch(IOException ex)
          {
@@ -96,15 +96,15 @@ public class SchiffeVersenken {
          }
     }   
     
-    public static void ladeSpielfeld()
+    public static void LoadBoard()
     {
-        for (int i = 0; i < Spielfeld.length; i++) {
-            for (int j = 0; j < Spielfeld.length; j++) {
-                System.out.print(Spielfeld[i][j]); 
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                System.out.print(board[i][j]); 
             }
             System.out.println("");
         }
-        erstelleFeind();
+        CreateEnenmy();
     }
     
     public static int randInt(int min, int max) {
@@ -119,19 +119,19 @@ public class SchiffeVersenken {
     return randomNum;
     }
     
-    private static void erstelleFeind()
+    private static void CreateEnenmy()
     {
         int x = randInt(0,4);
         int y = randInt(0,4);
         
-        Spielfeld[x][y] = "X";
+        board[x][y] = "X";
     }
     
-    public static void zeigeSpielfeld()
+    public static void ShowBoard()
     {
-        for (int i = 0; i < Spielfeld.length; i++) {
-            for (int j = 0; j < Spielfeld.length; j++) {
-                System.out.print(Spielfeld[i][j]);                
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                System.out.print(board[i][j]);                
             }
             System.out.println(""); 
         }
@@ -139,9 +139,9 @@ public class SchiffeVersenken {
     
     public static void Update()
     {
-        for (int i = 0; i < Mod_Spielfeld.length; i++) {
-            for (int j = 0; j < Mod_Spielfeld.length; j++) {
-                System.out.print(Mod_Spielfeld[i][j]);    
+        for (int i = 0; i < modBoard.length; i++) {
+            for (int j = 0; j < modBoard.length; j++) {
+                System.out.print(modBoard[i][j]);    
             }
             System.out.println("");
         }
