@@ -1,5 +1,5 @@
 # Battleship
-Java Battleship Game to demonstrate multidimensional arrays
+Java Battleship Console Game to demonstrate multidimensional arrays
 
 This was University Task I helped a friend of mine.
 
