@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) Julian Hüppauff 2016
+ * MIT Licence
+ * See https://github.com/jhueppauff/Battleship/blob/master/LICENSE for more Information
  */
 package schiffeversenken;
 
@@ -14,15 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-/**
- *
- *
- */
 public class SchiffeVersenken {
 
-    /**
-     * @param args the command line arguments
-     */  
     static String[][] Spielfeld = new String[5][5];
     static String[][] Mod_Spielfeld = new String[5][5];
     static boolean gewonnen = false;
